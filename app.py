@@ -50,17 +50,14 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") != "Priceapi":
         return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
-        return {}
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
-    result = urlopen(yql_url).read()
-    data = json.loads(result)
-    res = makeWebhookResult(data)
-    return res
+    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+		yql_url = baseurl + "&format=json"
+		result = urlopen(yql_url).read()
+		data = json.loads(result)
+		res = makeWebhookResult(data)
+		return res
 
 
 def makeYqlQuery(req):
@@ -74,32 +71,21 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    query = data.get('query')
+      query = data.get('responseData')
     if query is None:
         return {}
 
-    result = query.get('results')
+    result = query.get('product_price')
     if result is None:
         return {}
 
-    channel = result.get('channel')
+    channel = result.get('price')
     if channel is None:
-        return {}
-
-    item = channel.get('item')
-    location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-        return {}
-
-    condition = item.get('condition')
-    if condition is None:
         return {}
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    speech = "Today in " + result.get('price') 
 
     print("Response:")
     print(speech)
@@ -111,7 +97,6 @@ def makeWebhookResult(data):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
