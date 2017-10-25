@@ -60,7 +60,7 @@ def processRequest(req):
 	product_price = responseData.get('product_price')
 	price = product_price[0]['price']
 	
-	speech = price
+	speech = 'Price is ' + price
 		
 	return {
         	"speech": speech,
