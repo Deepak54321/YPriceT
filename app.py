@@ -53,9 +53,17 @@ def processRequest(req):
     if req.get("result").get("action") != "Demoapi":
         return {}
     speech="Hello World";
-    return {
-        "speech": speech,
-        "displayText": speech,
+    
+    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240&format=json"
+      
+    result = urlopen(baseurl).read()
+    data = json.loads(result)
+	
+	
+	
+	return {
+        "speech": data,
+        "displayText": data,
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
