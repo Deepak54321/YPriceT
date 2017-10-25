@@ -56,8 +56,11 @@ def processRequest(req):
 	full_url = baseurl  
 	result = urlopen(full_url).read()
 	data = json.loads(result)
-	responseCode = data.get('responseCode')
-	speech = responseCode
+	responseData = data.get('responseData')
+	product_price = responseData.get('product_price')
+	price = product_price.get('price')
+	
+	speech = 'Price is ' + price
 		
 	return {
         	"speech": speech,
