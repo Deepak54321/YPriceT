@@ -58,7 +58,7 @@ def processRequest(req):
 	data = json.loads(result)
 	responseData = data.get('responseData')
 	product_price = responseData.get('product_price')
-	price = product_price.get('price')
+	price = product_price[0].get('price')
 	
 	speech = 'Price is ' + price
 		
