@@ -52,7 +52,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Priceapi":
         return {}
-    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/state"
 		yql_url = baseurl + "&format=json"
 		result = urlopen(yql_url).read()
 		data = json.loads(result)
@@ -75,17 +75,9 @@ def makeWebhookResult(data):
     if query is None:
         return {}
 
-    result = query.get('product_price')
-    if result is None:
-        return {}
-
-    channel = result.get('price')
-    if channel is None:
-        return {}
-
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + result.get('price') 
+    speech = "Today in " + query 
 
     print("Response:")
     print(speech)
