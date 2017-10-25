@@ -52,21 +52,8 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "Demoapi":
         return {}
-    speech="Hello World";
-    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240&format=json"
-    result = urlopen(baseurl).read()
-    data = json.loads(result)
-	query = data.get('responseData')
-    if query is None:
-        return {}
-
-    result = query.get('product_price')
-    if result is None:
-        return {}
-
-    speech = result[0].get('price')
-    
-	return {
+    speech="110000";
+    return {
         "speech": speech,
         "displayText": speech,
         # "data": data,
