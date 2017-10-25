@@ -56,8 +56,16 @@ def processRequest(req):
 		#result = urlopen(full_url).read()
 		#data = json.loads(result)
 		data = "14"
-		res = makeWebhookResult(data)
-		return res
+		#res = makeWebhookResult(data)
+		#return res
+		
+		return {
+        		"speech": data,
+        		"displayText": data,
+       			# "data": data,
+        		# "contextOut": [],
+        		"source": "apiai-weather-webhook-sample"
+    			}
 		
 def makeWebhookResult(data):
     speech = "Current Pirce: " + data
@@ -71,7 +79,7 @@ def makeWebhookResult(data):
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
-    }
+    	}
 
 
 if __name__ == '__main__':
