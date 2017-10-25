@@ -51,17 +51,17 @@ def webhook():
 def processRequest(req):
 	if req.get("result").get("action") !="Priceapi":
 		return {}
-		#baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
-		#full_url = baseurl  
-		#result = urlopen(full_url).read()
-		#data = json.loads(result)
-	data = "14"
-		#res = makeWebhookResult(data)
-		#return res
+	
+	baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+	full_url = baseurl  
+	result = urlopen(full_url).read()
+	data = json.loads(result)
+	responseCode = data.get('responseCode')
+	speech = responseCode
 		
 	return {
-        	"speech": data,
-        	"displayText": data,
+        	"speech": speech,
+        	"displayText": speech,
        		# "data": data,
         	# "contextOut": [],
         	"source": "apiai-weather-webhook-sample"
