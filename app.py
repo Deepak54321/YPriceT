@@ -55,8 +55,8 @@ def processRequest(req):
 		#full_url = baseurl  
 		#result = urlopen(full_url).read()
 		#data = json.loads(result)
-		data = "14"
-		speech = "Current Pirce: " + data
+		data = "14";
+		speech = "Current Pirce: " + data;
 		#res = makeWebhookResult(data)
 	        return {
         "speech": speech,
