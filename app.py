@@ -49,11 +49,20 @@ def webhook():
 
 
 def processRequest(req):
-	if req.get("result").get("action") =="Priceapi"
-		
+	if req.get("result").get("action") !="Priceapi":
+		return {}
 		data = "Testing"
 		res = makeWebhookResult(data)
 		return res
+		
+def makeYqlQuery(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    city = parameters.get("geo-city")
+    if city is None:
+        return None
+
+    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 def makeWebhookResult(data):
     
