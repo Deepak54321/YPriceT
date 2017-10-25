@@ -50,14 +50,16 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "Priceapi":
+    if req.get("result").get("action") != "Demoapi":
         return {}
-    baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/state"
-		yql_url = baseurl + "&format=json"
-		result = urlopen(yql_url).read()
-		data = json.loads(result)
-		res = makeWebhookResult(data)
-		return res
+    speech="Hello World";
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 def makeYqlQuery(req):
