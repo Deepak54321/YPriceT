@@ -51,15 +51,16 @@ def webhook():
 def processRequest(req):
 	if req.get("result").get("action") !="Priceapi":
 		return {}
-		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
-		full_url = baseurl  
-		result = urlopen(full_url).read()
-		data = json.loads(result)
+		#baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+		#full_url = baseurl  
+		#result = urlopen(full_url).read()
+		#data = json.loads(result)
+		data = "14"
 		res = makeWebhookResult(data)
 		return res
 		
 def makeWebhookResult(data):
-    speech = "Current Pirce: " + data.get('responseCode') 
+    speech = "Current Pirce: " + data
 
     print("Response:")
     print(speech)
