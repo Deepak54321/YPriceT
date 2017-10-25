@@ -52,37 +52,14 @@ def processRequest(req):
 	if req.get("result").get("action") !="Priceapi":
 		return {}
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
-		yql_url = baseurl 
-		result = urlopen(yql_url).read()
+		full_url = baseurl  
+		result = urlopen(full_url).read()
 		data = json.loads(result)
 		res = makeWebhookResult(data)
 		return res
 		
-def makeYqlQuery(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    if city is None:
-        return None
-
-    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
-
 def makeWebhookResult(data):
-    query = data.get('responseData')
-    if query is None:
-        return {}
-
-    result = query.get('product_price')
-    if result is None:
-        return {}
-
-    channel = result[0].get('price')
-    if channel is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
-    speech = "Current Pirce: " + channel 
+    speech = "Current Pirce: " + data.get('responseCode') 
 
     print("Response:")
     print(speech)
