@@ -49,25 +49,33 @@ def webhook():
 
 
 def processRequest(req):
-	if req.get("result").get("action") !="Priceapi":
-		return {}
-		#baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
-		#full_url = baseurl  
-		#result = urlopen(full_url).read()
-		#data = json.loads(result)
-		data = "14";
-		speech = "Current Pirce: " + data;
-		#res = makeWebhookResult(data)
-	        return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
+	if req.get("result").get("action") =="Priceapi"
+		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+		yql_url = baseurl 
+		result = urlopen(yql_url).read()
 		
+		#result = '{"info":"SUCCESS","warn":"","error":"","responseCode":"200","responseData":{"product_price":[{"old_price":"","price":"48019"}]}}'
+		
+		data = json.loads(result)
+		#res = makeWebhookResult(data)
+		return data
+
 def makeWebhookResult(data):
-    speech = "Current Pirce: " + data
+    query = data.get('responseData')
+    if query is None:
+        return {}
+
+    result = query.get('product_price')
+    if result is None:
+        return {}
+
+    channel = result[0].get('price')
+    if channel is None:
+        return {}
+
+    # print(json.dumps(item, indent=4))
+
+    speech = "Today in " + result.get('price') 
 
     print("Response:")
     print(speech)
