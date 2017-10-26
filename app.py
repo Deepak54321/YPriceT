@@ -70,9 +70,12 @@ def processRequest(req):
 		full_url = baseurl  
 		result = urlopen(full_url).read()
 		data = json.loads(result)
-		responseData = data.get('responseCode')
-		#product_price = responseData.get('product_price')
-		#price = product_price[0]['price']	
+		responseData = data.get('responseData')
+		dealers = responseData.get('dealers')
+		dealername = dealers[0]['dealer_name']
+		dealeraddress=dealers[0]['dealer_address']
+		dealersalmgrmob=dealers[0]['sales_manager_mobile']
+		speech='Dealer name' + dealername + "\n" + 'Dealer Address' + dealeraddress + "\n" + 'Dealer Salese Manager Mobile No' + dealersalmgrmob
 		speech = responseData
 		return {
 			"speech":speech,
