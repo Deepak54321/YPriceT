@@ -74,12 +74,12 @@ def processRequest(req):
 		dealers = responseData.get('dealers')
 		speech=""
 		i=0
-		while i<dealers.len
+		while i<len(dealers)
 			dealername = dealers[i]['dealer_name']
 			dealeraddress=dealers[i]['dealer_address']
 		    dealersalmgrmob=dealers[i]['sales_manager_mobile']
-		    speech=speech +'Dealer name' + dealername + '\n' + '\n' + 'Dealer Address' + dealeraddress + '\n' + '\n' + 'Dealer Salese Manager Mobile No' + dealersalmgrmob
-			i=i+1
+		    speech+='Dealer name' + dealername + '\n' + '\n' + 'Dealer Address' + dealeraddress + '\n' + '\n' + 'Dealer Salese Manager Mobile No' + dealersalmgrmob
+			i+=1;
 		return {
 			"speech":speech,
 			"displayText":speech,
