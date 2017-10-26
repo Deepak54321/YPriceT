@@ -49,26 +49,28 @@ def webhook():
 
 
 def processRequest(req):
-	if req.get("result").get("action") !="Priceapi":
-		return {}
-	
-	baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
-	full_url = baseurl  
-	result = urlopen(full_url).read()
-	data = json.loads(result)
-	responseData = data.get('responseData')
-	product_price = responseData.get('product_price')
-	price = product_price[0]['price']
-	
-	speech = 'Price is ' + price
-		
-	return {
-        	"speech": speech,
-        	"displayText": speech,
-       		# "data": data,
-        	# "contextOut": [],
-        	"source": "apiai-weather-webhook-sample"
-    		}
+	if req.get("result").get("action") =="Priceapi":
+		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240"
+		full_url = baseurl  
+		result = urlopen(full_url).read()
+		data = json.loads(result)
+		responseData = data.get('responseData')
+		product_price = responseData.get('product_price')
+		price = product_price[0]['price']	
+		speech = 'Price is ' + price		
+		return {
+        		"speech": speech,
+        		"displayText": speech,
+       			# "data": data,
+        		# "contextOut": [],
+        		"source": "apiai-weather-webhook-sample"
+    			}
+	if req.get("result").get("action") =="Dealerapi":
+		test = "Hwllo"
+		return {
+			"speech":test,
+			"displayText":test,
+			}
 		
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
