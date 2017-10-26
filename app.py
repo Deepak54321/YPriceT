@@ -84,10 +84,10 @@ def processRequest(req):
 	if req.get("result").get("action") =="Validation":
 		result = req.get("result")
 		parameters = result.get("parameters")
-		city = parameters.get("email")
+		speech = parameters.get("email")
 		return {
-			"speech":phonenumber,
-			"displayText":phonenumber,
+			"speech":speech,
+			"displayText":speech,
 			}		
 			
 		
