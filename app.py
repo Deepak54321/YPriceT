@@ -73,9 +73,9 @@ def processRequest(req):
 		responseData = data.get('responseData')
 		dealers = responseData.get('dealers')
 		for delaler in dealers
-			dealername = delaler.['dealer_name']
-			dealeraddress=delaler.['dealer_address']
-			dealersalmgrmob=delaler.['sales_manager_mobile']
+			dealername = delaler.get('dealer_name')
+			dealeraddress=delaler.('dealer_address')
+			dealersalmgrmob=delaler.('sales_manager_mobile')
 			speech='Dealer name' + dealername + '\n' + '\n' + 'Dealer Address' + dealeraddress + '\n' + '\n' + 'Dealer Salese Manager Mobile No' + dealersalmgrmob
 		return {
 			"speech":speech,
