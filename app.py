@@ -84,7 +84,7 @@ def processRequest(req):
 	if req.get("result").get("action") =="Validation":
 		result = req.get("result")
 		parameters = result.get("parameters")
-		speech = parameters.get("email") + "returned from the webservice"
+		speech = "Invalid Phone number"
 		return {
 			"speech":speech,
 			"displayText":speech,
