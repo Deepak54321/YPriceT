@@ -76,7 +76,6 @@ def processRequest(req):
 		dealeraddress=dealers[0]['dealer_address']
 		dealersalmgrmob=dealers[0]['sales_manager_mobile']
 		speech='Dealer name' + dealername + "\n" + 'Dealer Address' + dealeraddress + "\n" + 'Dealer Salese Manager Mobile No' + dealersalmgrmob
-		speech = responseData
 		return {
 			"speech":speech,
 			"displayText":speech,
