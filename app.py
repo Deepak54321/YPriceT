@@ -82,8 +82,9 @@ def processRequest(req):
 			"displayText":speech,
 			}	
 	if req.get("result").get("action") =="Validation":
-		pararmaters=req.get("result").get("parameters")
-		phonenumber=parameters.get("number")
+		result = req.get("result")
+		parameters = result.get("parameters")
+		city = parameters.get("email")
 		return {
 			"speech":phonenumber,
 			"displayText":phonenumber,
