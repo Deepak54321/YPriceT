@@ -86,8 +86,8 @@ def processRequest(req):
 		pararmaters=req.get("parameters")
 		phonenumber=parameters.get("number")
 		return {
-			"speech":number,
-			"displayText":number,
+			"speech":phonenumber,
+			"displayText":phonenumber,
 			}		
 			
 		
