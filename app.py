@@ -84,13 +84,11 @@ def processRequest(req):
 	if req.get("result").get("action") =="Validation":
 		result = req.get("result")
 		parameters = result.get("parameters")
-		speech = parameters.get("email")
+		speech = parameters.get("email") + "returned from the webservice"
 		return {
 			"speech":speech,
 			"displayText":speech,
 			}		
-			
-		
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
