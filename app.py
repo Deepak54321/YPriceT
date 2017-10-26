@@ -81,6 +81,14 @@ def processRequest(req):
 			"speech":speech,
 			"displayText":speech,
 			}
+			
+	if req.get("result").get("action") =="Validation":
+		number=req.parameters.get('sys.number')
+		return {
+			"speech":number,
+			"displayText":number,
+			}		
+			
 		
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
