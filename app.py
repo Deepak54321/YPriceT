@@ -75,7 +75,7 @@ def processRequest(req):
 		result = urlopen(full_url).read()
 		data = json.loads(result)
 		responseData = data.get('responseData')
-		speech=city
+		speech=""
 		dealers = responseData.get('dealers')
 		if dealers is None:
 			speech="No Dealer Found in your city please check the city you entered"		
