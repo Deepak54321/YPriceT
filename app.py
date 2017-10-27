@@ -66,6 +66,11 @@ def processRequest(req):
         		"source": "apiai-weather-webhook-sample"
     			}
 	if req.get("result").get("action") =="Dealerapi":
+		result = req.get("result")
+		parameters = result.get("parameters")
+		state=parameters.get('State')
+		city=parameters.get('geo-city')
+		
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		full_url = baseurl  
 		result = urlopen(full_url).read()
@@ -77,7 +82,7 @@ def processRequest(req):
 			dealername = dealers[i]['dealer_name']
 			dealeraddress=dealers[i]['dealer_address']
 			dealersalmgrmob=dealers[i]['sales_manager_mobile']
-			speech+='Dealer name :' + dealername + '\n'  + 'Dealer Address :' + dealeraddress + '\n'  + 'Dealer Salese Manager Mobile No :' + dealersalmgrmob + '\n' + '\n' 
+			speech+='Dealer name :' + state + '\n'  + 'Dealer Address :' + city + '\n'  + 'Dealer Salese Manager Mobile No :' + dealersalmgrmob + '\n' + '\n' 
 		return {
 			"speech":speech,
 			"displayText":speech,
