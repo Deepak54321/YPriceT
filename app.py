@@ -65,7 +65,7 @@ def processRequest(req):
         		# "contextOut": [],
         		"source": "apiai-weather-webhook-sample"
     			}
-	elif  req.get("result").get("action") =="Dealerapi":
+	if req.get("result").get("action") =="Dealerapi":
 		result = req.get("result")
 		parameters = result.get("parameters")
 		state=parameters.get('State')
@@ -87,40 +87,8 @@ def processRequest(req):
 		return {
 			"speech":speech,
 			"displayText":speech,
-			}
-	elif  req.get("result").get("action") =="intro":
-	    return {
-		      'speech': 'When',
-              'displayText': 'When',
-              'messages': 
-              [
-               {'title': 'Please choose one of the following options',
-                'replies': ['Product Enquiry',
-                            'Test Drive',
-                            'Complaints',
-                            'Yamaha News'],
-                'type': 2}
-              ],
-              'source': 'dimwei.com'
-		}
-		
-	elif  req.get("result").get("action") =="feedback":
-	    return {
-		      'speech': 'When',
-              'displayText': 'When',
-              'messages': 
-              [
-               {'title': 'Please choose one of the following options',
-                'replies': ['Excellent',
-                            'Good',
-                            'Average',
-                            'Bad'],
-                'type': 2}
-              ],
-              'source': 'dimwei.com'
-		}
-       
-	
+			}	
+			
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
