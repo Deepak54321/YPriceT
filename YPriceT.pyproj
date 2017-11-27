@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7b27ed18-924a-4e8d-b825-324b9702aef3}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>app.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\content\bootstrap.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\content\bootstrap.min.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\content\site.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\bootstrap.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\bootstrap.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\respond.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\respond.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts\_references.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\requirements.txt" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app.py" />
+    <Compile Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\views.py" />
+    <Compile Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\__init__.py" />
+    <Compile Include="FlaskWebProject1\FlaskWebProject1\runserver.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FlaskWebProject1\FlaskWebProject1" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\content" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\fonts" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\FlaskWebProject1\static\scripts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
