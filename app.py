@@ -66,7 +66,12 @@ def processRequest(req):
                             'Good',
                             'Average',
                             'Bad'],
-                'type': 2}],
+                'type': 2},
+                {
+                   'type':0,
+                   'speech':speech
+               }
+               ],
               'source': 'dimwei.com'
        			# "data": data,
         		# "contextOut": [],
@@ -100,7 +105,12 @@ def processRequest(req):
                             'Good',
                             'Average',
                             'Bad'],
-                'type': 2}],
+                'type': 2},
+               {
+                   'type':0,
+                   'speech':speech
+               }
+               ],
               'source': 'dimwei.com'
 			}
 	if req.get("result").get("action") == "feedback":
