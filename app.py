@@ -61,13 +61,14 @@ def processRequest(req):
         		"speech": speech,
         		"displayText": speech,
                  'messages': 
-              [{'title': 'Please provide your feedback',
-                'replies': ['Feedback'],
-                'type': 2},
-                {
+              [   {
                    'type':0,
                    'speech':speech
-               }
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}
+             
                ],
               'source': 'dimwei.com'
        			# "data": data,
@@ -97,13 +98,14 @@ def processRequest(req):
 			"speech":speech,
 			"displayText":speech,
              'messages': 
-              [{'title': 'Please provide your feedback',
-                'replies': ['Feedback'],
-                'type': 2},
-               {
+              [ {
                    'type':0,
                    'speech':speech
-               }
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}
+              
                ],
               'source': 'dimwei.com'
 			}
