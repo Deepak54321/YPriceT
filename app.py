@@ -87,7 +87,23 @@ def processRequest(req):
 		return {
 			"speech":speech,
 			"displayText":speech,
-			}		
+			}
+	if req.get("result").get("action") =="intro":
+	    return {
+		      'speech': 'When',
+              'displayText': 'When',
+              'messages': 
+              [
+               {'title': 'Please choose one of the following options',
+                'replies': ['Product Enquiry',
+                            'Test Drive',
+                            'Complaints',
+                            'Yamaha News'],
+                'type': 2}
+              ],
+              'source': 'dimwei.com'
+		}
+	
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
