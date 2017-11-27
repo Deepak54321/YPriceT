@@ -62,10 +62,7 @@ def processRequest(req):
         		"displayText": speech,
                  'messages': 
               [{'title': 'Please provide your feedback',
-                'replies': ['Excellent',
-                            'Good',
-                            'Average',
-                            'Bad'],
+                'replies': ['Feedback'],
                 'type': 2},
                 {
                    'type':0,
@@ -101,10 +98,7 @@ def processRequest(req):
 			"displayText":speech,
              'messages': 
               [{'title': 'Please provide your feedback',
-                'replies': ['Excellent',
-                            'Good',
-                            'Average',
-                            'Bad'],
+                'replies': ['Feedback'],
                 'type': 2},
                {
                    'type':0,
