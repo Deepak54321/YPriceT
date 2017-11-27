@@ -103,6 +103,22 @@ def processRequest(req):
               ],
               'source': 'dimwei.com'
 		}
+		
+	if req.get("result").get("action") =="feedback":
+	    return {
+		      'speech': 'When',
+              'displayText': 'When',
+              'messages': 
+              [
+               {'title': 'Please choose one of the following options',
+                'replies': ['Excellent',
+                            'Good',
+                            'Average',
+                            'Bad'],
+                'type': 2}
+              ],
+              'source': 'dimwei.com'
+		}
 	
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
