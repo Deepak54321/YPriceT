@@ -98,10 +98,7 @@ def processRequest(req):
 			"speech":speech,
 			"displayText":speech,
              'messages': 
-              [ {
-                   'type':0,
-                   'speech':speech
-               },
+              [ 
 		      {
 			      'type':0,
 			      'speech':city
