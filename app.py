@@ -60,9 +60,17 @@ def processRequest(req):
 		return {
         		"speech": speech,
         		"displayText": speech,
+                 'messages': 
+              [{'title': 'Please provide your feedback',
+                'replies': ['Excellent',
+                            'Good',
+                            'Average',
+                            'Bad'],
+                'type': 2}],
+              'source': 'dimwei.com'
        			# "data": data,
         		# "contextOut": [],
-        		"source": "apiai-weather-webhook-sample"
+        		#"source": "apiai-weather-webhook-sample"
     			}
 	if req.get("result").get("action") == "Dealerapi":
 		result = req.get("result")
@@ -86,6 +94,14 @@ def processRequest(req):
 		return {
 			"speech":speech,
 			"displayText":speech,
+             'messages': 
+              [{'title': 'Please provide your feedback',
+                'replies': ['Excellent',
+                            'Good',
+                            'Average',
+                            'Bad'],
+                'type': 2}],
+              'source': 'dimwei.com'
 			}
 	if req.get("result").get("action") == "feedback":
 	    return {
