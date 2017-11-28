@@ -79,7 +79,7 @@ def processRequest(req):
 		result = req.get("result")
 		parameters = result.get("parameters")
 		state = parameters.get('State')
-		city = parameters.get('pincode')
+		city = parameters.get('geo-city')
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		full_url = baseurl  
 		result = urlopen(full_url).read()
@@ -98,11 +98,10 @@ def processRequest(req):
 			"speech":speech,
 			"displayText":speech,
              'messages': 
-              [ 
-		      {
-			      'type':0,
-			      'speech':city
-		      },
+              [ {
+                   'type':0,
+                   'speech':speech
+               },
                   {'title': 'Please provide your feedback',
                 'replies': ['Feedback'],
                 'type': 2}
