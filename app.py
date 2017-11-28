@@ -95,12 +95,12 @@ def processRequest(req):
 			dealersalmgrmob = dealers[i]['sales_manager_mobile']
 			speech+='Dealer name :' + dealername + '\n' + 'Dealer Address :' + dealeraddress + '\n' + 'Dealer Salese Manager Mobile No :' + dealersalmgrmob + '\n' + '\n' 
 		return {
-			"speech":pincode,
-			"displayText":pincode,
+			"speech":speech,
+			"displayText":speech,
              'messages': 
               [{
                    'type':0,
-                   'speech':pincode
+                   'speech':speech
                },
                   {'title': 'Please provide your feedback',
                 'replies': ['Feedback'],
