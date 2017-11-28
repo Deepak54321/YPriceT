@@ -75,11 +75,9 @@ def processRequest(req):
     			}
 	if req.get("result").get("action") == "Dealerapi":
 		result = req.get("result")
-		parameters = result.get("parameters")
-        #pincode=parameters.get("pincode")
         #contexts = req.get("result").get("contexts")[0]
-        #context=contexts[0]
         #pincode = contexts.get("parameters").get("pincode")
+        #print ("%s",pincode)
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		full_url = baseurl  
 		result = urlopen(full_url).read()
@@ -94,7 +92,8 @@ def processRequest(req):
 			dealeraddress = dealers[i]['dealer_address']
 			dealersalmgrmob = dealers[i]['sales_manager_mobile']
 			speech+='Dealer name :' + dealername + '\n' + 'Dealer Address :' + dealeraddress + '\n' + 'Dealer Salese Manager Mobile No :' + dealersalmgrmob + '\n' + '\n' 
-		return {
+		print ("%s",speech)
+           return {
 			"speech":speech,
 			"displayText":speech,
              'messages': 
