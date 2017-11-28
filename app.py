@@ -102,7 +102,7 @@ def processRequest(req):
              'messages': 
               [{
                    'type':0,
-                   'speech':speech
+                   'speech':state
                },
                   {'title': 'Please provide your feedback',
                 'replies': ['Feedback'],
