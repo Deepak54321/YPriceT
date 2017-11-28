@@ -79,6 +79,7 @@ def processRequest(req):
         contexts = result.get("contexts")
         newparameters = contexts.get("parameters")
 		state = newparameters.get('pincode')
+        state+='my state:'
         print ("%s"%state)
 		
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
