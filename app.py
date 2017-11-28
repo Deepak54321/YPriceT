@@ -61,15 +61,13 @@ def processRequest(req):
         		"speech": speech,
         		"displayText": speech,
                  'messages': 
-              [   {
+              [{
                    'type':0,
                    'speech':speech
                },
                   {'title': 'Please provide your feedback',
                 'replies': ['Feedback'],
-                'type': 2}
-             
-               ],
+                'type': 2}],
               'source': 'dimwei.com'
        			# "data": data,
         		# "contextOut": [],
@@ -78,8 +76,11 @@ def processRequest(req):
 	if req.get("result").get("action") == "Dealerapi":
 		result = req.get("result")
 		parameters = result.get("parameters")
-		state = parameters.get('State')
-		city = parameters.get('geo-city')
+        contexts = result.get("contexts")
+        newparameters = contexts.get("parameters")
+		state = newparameters.get('pincode')
+        print ("%s"%state)
+		
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		full_url = baseurl  
 		result = urlopen(full_url).read()
@@ -98,15 +99,13 @@ def processRequest(req):
 			"speech":speech,
 			"displayText":speech,
              'messages': 
-              [ {
+              [{
                    'type':0,
                    'speech':speech
                },
                   {'title': 'Please provide your feedback',
                 'replies': ['Feedback'],
-                'type': 2}
-              
-               ],
+                'type': 2}],
               'source': 'dimwei.com'
 			}
 	if req.get("result").get("action") == "feedback":
