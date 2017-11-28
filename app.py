@@ -74,10 +74,9 @@ def processRequest(req):
         		#"source": "apiai-weather-webhook-sample"
     			}
 	if req.get("result").get("action") == "Dealerapi":
-		result = req.get("result")
+		
         #print("%s",result)
-        	#contexts =result.get("contexts")[0]
-        	#pincode =contexts.get("parameters").get("pincode")
+		result = req.get("result");contexts =result.get("contexts")[0];pincode =contexts.get("parameters").get("pincode")
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		full_url = baseurl  
 		result = urlopen(full_url).read()
