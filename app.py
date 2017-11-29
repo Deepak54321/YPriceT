@@ -76,8 +76,8 @@ def processRequest(req):
 	if req.get("result").get("action") == "Dealerapi":
 		#print("%s",result)
 		result = req.get("result");
-        contexts =result.get("contexts")[0];
-        pincode =contexts.get("parameters").get("pincode")
+        	contexts =result.get("contexts")[0];
+        	pincode =contexts.get("parameters").get("pincode")
 		baseurl = "http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=gujarat&city_profile_id=ahmedabad"
 		print("Pincode is :",pincode)
 		full_url = baseurl  
